@@ -10,6 +10,13 @@ class Node {
     Node(int d) {
         this.data = d;
     }
+
+    Node() {
+    }
+}
+
+class IntWrapper {
+    public int value = 0;
 }
 
 public class LinkedList {
@@ -50,8 +57,12 @@ public class LinkedList {
 
     public String printList() {
         StringBuilder print = new StringBuilder();
-        print.append(this.head.data + " ");
 
+
+        if (this.head == null) {
+            return "null";
+        }
+        print.append(this.head.data + " ");
         if (this.head.next != null) {
             Node tempNode = this.head.next;
             print.append(tempNode.data + " ");
@@ -62,6 +73,21 @@ public class LinkedList {
         }
         return print.toString();
     }
+
+
+    public String printList(Node tempNode) {
+        StringBuilder print = new StringBuilder();
+
+//        Node tempNode = node;
+        while (tempNode != null) {
+            print.append(tempNode.data + " ");
+            tempNode = tempNode.next;
+        }
+
+
+        return print.toString();
+    }
+
 
     public void removeDuplicates() {
         HashMap<Integer, Boolean> duplicateMap = new HashMap<>();
@@ -82,9 +108,85 @@ public class LinkedList {
                 duplicateMap.put(tempNode.next.data, true);
                 tempNode = tempNode.next;
             }
-
         }
+    }
 
+
+    public int findKfromStart(int k) {
+        Node tempNode = this.head;
+        while (k > 0) {
+            if (tempNode.next != null) {
+                tempNode = tempNode.next;
+            }
+            k--;
+        }
+        return tempNode.data;
+    }
+
+    private int recFindFromEnd(int k, Node tempNode) {
+        if (tempNode == null) {
+            return 0;
+        }
+        int previous = recFindFromEnd(k, tempNode.next) + 1;
+        if (previous == k) {
+            System.out.println(tempNode.data);
+        }
+        return previous;
+
+    }
+
+    public int findKValuefromEnd(int k) {
+        return recFindFromEnd(k, this.head);
+    }
+
+    public Node recKnodeFromEnd(int k, Node tempNode, IntWrapper i) {
+        if (tempNode == null) {
+            return null;
+        }
+        Node nextNode = recKnodeFromEnd(k, tempNode.next, i);
+        i.value = i.value + 1;
+
+        if (i.value == k) {
+            return tempNode;
+        }
+        return nextNode;
+    }
+
+    public int findKnodeFromEnd(int k) {
+        return recKnodeFromEnd(k, this.head, new IntWrapper()).data;
+    }
+
+    public String partitionLinkedList(int edgeValue) {
+        Node smallStart = null;
+        Node smallEnd = null;
+        Node bigStart = null;
+        Node bigEnd = null;
+
+        Node tempNode = this.head;
+        while (tempNode != null) {
+            Node next = tempNode.next;
+            tempNode.next = null;
+
+            if (tempNode.data < edgeValue) {
+                if (smallStart == null) {
+                    smallStart = tempNode;
+                    smallEnd = smallStart;
+                } else {
+                    smallEnd.next = tempNode;
+                    smallEnd = tempNode;
+                }
+            } else {
+                if (bigStart == null) {
+                    bigStart = tempNode;
+                    bigEnd = bigStart;
+                } else {
+                    bigEnd.next = tempNode;
+                    bigEnd = tempNode;
+                }
+            }
+            tempNode = next;
+        }
+        return (printList(smallStart) + "|" + printList(bigStart));
     }
 
 
