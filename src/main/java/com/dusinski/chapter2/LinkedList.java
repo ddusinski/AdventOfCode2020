@@ -1,5 +1,6 @@
 package com.dusinski.chapter2;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
 
@@ -20,7 +21,83 @@ class IntWrapper {
 }
 
 public class LinkedList {
+    //    to check if list is Circular
+    private final int MAX_STEPS = 10000;
     private Node head;
+
+    public static String printList(Node tempNode) {
+        StringBuilder print = new StringBuilder();
+
+//        Node tempNode = node;
+        while (tempNode != null) {
+            print.append(tempNode.data + " ");
+            tempNode = tempNode.next;
+        }
+
+
+        return print.toString();
+    }
+
+    //    there are given two linked lists. Each represent a number. Its digits are in reversed order:
+//    227 = 7->2->2
+//  + 54  = 4->5
+//    The function return the result. Its digits are in reverse order 281 = 1->8->2
+    public static String addTwoLinkedListNumbers(LinkedList listA, LinkedList listB) {
+        Node currentNodeA = listA.head;
+        Node currentNodeB = listB.head;
+        Node result = null;
+        int decadePart = 0;
+
+        while (currentNodeA != null) {
+            int partA = currentNodeA.data;
+            int partB = 0;
+            if (currentNodeB != null) {
+                partB = currentNodeB.data;
+            }
+            int sum = partA + partB + decadePart;
+            Node digit = new Node();
+
+            if (sum < 10) {
+                digit.data = sum;
+                decadePart = 0;
+            } else {
+                digit.data = sum % 10;
+                decadePart = sum / 10;
+            }
+            if (result == null) {
+                result = digit;
+            } else {
+
+                digit.next = result;
+                result = digit;
+            }
+            currentNodeA = currentNodeA.next;
+            if (currentNodeB != null) {
+                currentNodeB = currentNodeB.next;
+            }
+        }
+        while (currentNodeB != null) {
+            int partB = currentNodeB.data;
+            int sum = partB + decadePart;
+            Node digit = new Node();
+            if (sum < 10) {
+                digit.data = sum;
+                decadePart = 0;
+            } else {
+                digit.data = sum % 10;
+                decadePart = sum / 10;
+            }
+            digit.next = result;
+            result = digit;
+            currentNodeB = currentNodeB.next;
+        }
+        if (decadePart > 0) {
+            Node digit = new Node(decadePart);
+            digit.next = result;
+            result = digit;
+        }
+        return printList(result);
+    }
 
     public void appendToTail(int d) {
         Node end = new Node(d);
@@ -74,21 +151,6 @@ public class LinkedList {
         return print.toString();
     }
 
-
-    public String printList(Node tempNode) {
-        StringBuilder print = new StringBuilder();
-
-//        Node tempNode = node;
-        while (tempNode != null) {
-            print.append(tempNode.data + " ");
-            tempNode = tempNode.next;
-        }
-
-
-        return print.toString();
-    }
-
-
     public void removeDuplicates() {
         HashMap<Integer, Boolean> duplicateMap = new HashMap<>();
         Node tempNode = this.head;
@@ -110,7 +172,6 @@ public class LinkedList {
             }
         }
     }
-
 
     public int findKfromStart(int k) {
         Node tempNode = this.head;
@@ -189,5 +250,53 @@ public class LinkedList {
         return (printList(smallStart) + "|" + printList(bigStart));
     }
 
+    public void roundLinkedList(int elementToPointFromStart) {
+        Node tempNode = this.head;
+        while (tempNode != null && elementToPointFromStart > 0) {
+            tempNode = tempNode.next;
+            elementToPointFromStart--;
+        }
+        Node middleNode = tempNode;
+        while (tempNode.next != null) {
+            tempNode = tempNode.next;
+        }
+        tempNode.next = middleNode;
+    }
+
+
+    public boolean isLinkedListCircular() {
+        Node slowNode = this.head;
+        Node fastNode = this.head;
+        int iterator = this.MAX_STEPS;
+
+        while (fastNode != null && fastNode.next != null && iterator > 0) {
+            slowNode = slowNode.next;
+            fastNode = fastNode.next.next;
+            iterator--;
+        }
+        return iterator == 0;
+    }
+
+    //    returns the node of a Circular LinkedList which is on the beginning of the Loop
+//    provied LinkedList should be circular
+    public int returnLoopBeginningNode() {
+        Node slowNode = this.head;
+        Node fastNode = slowNode.next;
+
+        while (slowNode!=fastNode) {
+            slowNode = slowNode.next;
+            fastNode = fastNode.next.next;
+        }
+        slowNode=this.head;
+        fastNode = fastNode.next;
+        while (slowNode!=fastNode) {
+            slowNode = slowNode.next;
+            fastNode = fastNode.next;
+        }
+        return slowNode.data;
+    }
 
 }
+
+
+

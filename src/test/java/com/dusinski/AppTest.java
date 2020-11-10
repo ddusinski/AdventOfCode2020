@@ -62,6 +62,7 @@ public class AppTest {
         testList.deleteNode(36);
         assertEquals("89 120 ", testList.printList());
     }
+
     @Test
     public void testLinkedList2() {
         LinkedList testList = new LinkedList();
@@ -69,10 +70,74 @@ public class AppTest {
         testList.appendToTail(89);
         testList.appendToTail(120);
         testList.appendToTail(89);
-
         assertEquals("36 89 120 ", testList.printList());
-//        testList.deleteNode(120);
         assertEquals("36 89 ", testList.printList());
     }
+
+    @Test
+//    cannot works because is returing System.out instead of String. New method is needed
+    public void testFindKnodeFromEnd() {
+        LinkedList testList = new LinkedList();
+        testList.appendToTail(36);
+        testList.appendToTail(8);
+        testList.appendToTail(28);
+        testList.appendToTail(5);
+        System.out.println(testList.printList());
+        System.out.println(testList.findKValuefromEnd(2));
+
+        assertEquals(28, testList.findKValuefromEnd(2));
+    }
+
+    @Test
+    public void testListPartitioning() {
+        LinkedList testList = new LinkedList();
+        testList.appendToTail(36);
+        testList.appendToTail(8);
+        testList.appendToTail(28);
+        testList.appendToTail(5);
+        assertEquals("8 28 5 |36 ", testList.partitionLinkedList(29));
+    }
+
+    @Test
+    public void testAddTwoLinkedListNumbers() {
+        LinkedList testList1 = new LinkedList();
+        testList1.appendToTail(1);
+        testList1.appendToTail(9);
+        LinkedList testList2 = new LinkedList();
+        testList2.appendToTail(9);
+        testList2.appendToTail(8);
+        testList2.appendToTail(7);
+        assertEquals("8 8 0 ", LinkedList.addTwoLinkedListNumbers(testList1, testList2));
+    }
+
+    @Test
+    public void testIsLinkedListCircular() {
+        LinkedList testList1 = new LinkedList();
+        testList1.appendToTail(1);
+        testList1.appendToTail(9);
+        testList1.appendToTail(3);
+        testList1.appendToTail(5);
+        testList1.appendToTail(9);
+        testList1.appendToTail(8);
+        assertFalse(testList1.isLinkedListCircular());
+        testList1.roundLinkedList(2);
+        assertTrue(testList1.isLinkedListCircular());
+    }
+
+    @Test
+    public void testReturnLoopBeginningNode(){
+        LinkedList testList1 = new LinkedList();
+        testList1.appendToTail(1);
+        testList1.appendToTail(9);
+        testList1.appendToTail(3);
+        testList1.appendToTail(5);
+        testList1.appendToTail(7);
+        testList1.appendToTail(8);;
+        System.out.println(testList1.printList());
+        testList1.roundLinkedList(4);
+        System.out.println(testList1.returnLoopBeginningNode());
+        assertEquals(7, testList1.returnLoopBeginningNode());
+    }
+
 
 }
