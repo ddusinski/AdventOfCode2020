@@ -283,17 +283,43 @@ public class LinkedList {
         Node slowNode = this.head;
         Node fastNode = slowNode.next;
 
-        while (slowNode!=fastNode) {
+        while (slowNode != fastNode) {
             slowNode = slowNode.next;
             fastNode = fastNode.next.next;
         }
-        slowNode=this.head;
+        slowNode = this.head;
         fastNode = fastNode.next;
-        while (slowNode!=fastNode) {
+        while (slowNode != fastNode) {
             slowNode = slowNode.next;
             fastNode = fastNode.next;
         }
         return slowNode.data;
+    }
+
+    public boolean isPalindrome() {
+        int listLenght = 0;
+        Node reverseList = new Node(this.head.data);
+        Node tempList = this.head;
+
+        while (tempList != null) {
+            Node temp =new Node(tempList.data);
+            temp.next=reverseList;
+            reverseList = temp;
+            tempList = tempList.next;
+            listLenght++;
+        }
+
+        tempList = this.head;
+        while (listLenght > 1) {
+            if (tempList.data == reverseList.data) {
+                tempList = tempList.next;
+                reverseList = reverseList.next;
+                listLenght--;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
