@@ -3,6 +3,7 @@ package com.dusinski.chapter2;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Stack;
 
 class Node {
     Node next = null;
@@ -134,8 +135,6 @@ public class LinkedList {
 
     public String printList() {
         StringBuilder print = new StringBuilder();
-
-
         if (this.head == null) {
             return "null";
         }
@@ -302,8 +301,8 @@ public class LinkedList {
         Node tempList = this.head;
 
         while (tempList != null) {
-            Node temp =new Node(tempList.data);
-            temp.next=reverseList;
+            Node temp = new Node(tempList.data);
+            temp.next = reverseList;
             reverseList = temp;
             tempList = tempList.next;
             listLenght++;
@@ -322,6 +321,31 @@ public class LinkedList {
         return true;
     }
 
+    //    uses two runners to check if list is a palindrome
+    public boolean isPalindrome2() {
+        Node slowRunner = this.head;
+        Node fastRunner = this.head;
+
+        Stack<Node> firstPartOfLinkedList = new Stack<>();
+
+        while (fastRunner != null) {
+            if (fastRunner.next != null) {
+                firstPartOfLinkedList.add(slowRunner);
+                fastRunner = fastRunner.next.next;
+            } else {
+                fastRunner = fastRunner.next;
+            }
+            slowRunner = slowRunner.next;
+        }
+        while (slowRunner != null) {
+
+            if (slowRunner.data != firstPartOfLinkedList.pop().data) {
+                return false;
+            }
+            slowRunner = slowRunner.next;
+        }
+        return true;
+    }
 }
 
 

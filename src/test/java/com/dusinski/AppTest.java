@@ -152,4 +152,18 @@ public class AppTest {
         assertFalse(testList1.isPalindrome());
     }
 
+    @Test
+    public void testIsPalindrom2() {
+        LinkedList testList1 = new LinkedList();
+        testList1.appendToTail(1);
+        testList1.appendToTail(2);
+        testList1.appendToTail(3);
+        testList1.appendToTail(2);
+        testList1.appendToTail(1);
+        assertTrue(testList1.isPalindrome2());
+        testList1.appendToTail(8);
+        assertFalse(testList1.isPalindrome2());
+    }
+
+
 }
