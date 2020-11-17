@@ -5,6 +5,9 @@ import com.dusinski.chapter1.BasicStringCompression;
 import com.dusinski.chapter1.CheckStringPermutation;
 import com.dusinski.chapter1.SpaceReplace;
 import com.dusinski.chapter2.LinkedList;
+import com.dusinski.chapter3.ArrayStack;
+import com.dusinski.chapter3.SetOfStacks;
+import com.dusinski.chapter3.StackWithMin;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -163,6 +166,63 @@ public class AppTest {
         assertTrue(testList1.isPalindrome2());
         testList1.appendToTail(8);
         assertFalse(testList1.isPalindrome2());
+    }
+
+    @Test
+    public void testStackWithMin(){
+        StackWithMin swm= new StackWithMin();
+        swm.push(4);
+        swm.push(3);
+        swm.push(2);
+        swm.push(1);
+        assertEquals(1,swm.min());
+        swm.pop();
+        swm.pop();
+        swm.toString();
+        assertEquals(3,swm.min());
+    }
+
+    @Test
+    public void testArrayStack(){
+        ArrayStack as = new ArrayStack();
+        as.push1(1);
+        as.push1(2);
+        as.push1(3);
+        as.push2(4);
+        as.push2(5);
+        as.push2(6);
+        as.push3(7);
+        as.push3(8);
+        as.push3(9);
+        as.push3(10);
+
+        assertEquals("1 2 3 4 5 6 7 8 9 10 ",as.printArray());
+        as.pop1();
+        as.pop2();
+        as.pop3();
+        assertEquals("1 2 0 4 5 0 7 8 9 0 ",as.printArray());
+        as.pop1();
+        as.pop2();
+        as.pop3();
+        assertEquals("1 0 0 4 0 0 7 8 0 0 ",as.printArray());
+    }
+
+    @Test
+    public void checkSetOfStacks(){
+        SetOfStacks sof = new SetOfStacks();
+        sof.push(1);
+        sof.push(2);
+        sof.push(3);
+        sof.push(4);
+        sof.push(5);
+        sof.push(6);
+        sof.push(7);
+        sof.push(8);
+        sof.push(9);
+        sof.push(10);
+        assertEquals("2 1 \n" +"4 3 \n"+"6 5 \n"+"8 7 \n"+"10 9 \n",sof.printAll());
+        sof.popAt(1);
+        assertEquals("2 1 \n"+"5 3 \n"+"7 6 \n"+"9 8 \n"+"10 \n",sof.printAll());
     }
 
 

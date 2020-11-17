@@ -5,6 +5,7 @@ class Node {
     int data;
 
     int minValue=0;
+    int stackLength=1;
 
     Node(int d) {
         this.data = d;
@@ -21,6 +22,7 @@ class Node {
         } else {
             Node tempNode = n;
             while (tempNode != null) {
+//                print.append(tempNode.data + " |"+ tempNode.stackLength+"| ");
                 print.append(tempNode.data + " ");
                 tempNode = tempNode.next;
             }

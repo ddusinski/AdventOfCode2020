@@ -2,30 +2,33 @@ package com.dusinski;
 
 import com.dusinski.chapter1.*;
 import com.dusinski.chapter2.*;
-import com.dusinski.chapter3.StackWithMin;
+import com.dusinski.chapter3.*;
+
 
 /**
  * Hello world!
  */
-class DominikInt {
-    int value = 0;
-}
 
 public class App {
     public static void main(String[] args) {
-
-        StackWithMin swm= new StackWithMin();
-        swm.push(4);
-        swm.push(3);
-        swm.push(2);
-        swm.push(1);
-        System.out.println(swm.toString());
-        System.out.println(swm.min());
-        System.out.println(swm.pop());
-        System.out.println(swm.pop());
-        System.out.println(swm.toString());
-        System.out.println(swm.min());
-
+        SetOfStacks sof = new SetOfStacks();
+        sof.push(1);
+        sof.push(2);
+        sof.push(3);
+        sof.push(4);
+        sof.push(5);
+        sof.push(6);
+        sof.push(7);
+        sof.push(8);
+        sof.push(9);
+        sof.push(10);
+        System.out.println(sof.printAll());
+//        sof.pop();
+//        sof.pop();
+//        sof.pop();
+//        sof.pop();
+        sof.popAt(2);
+        System.out.println(sof.printAll());
 
     }
 }
