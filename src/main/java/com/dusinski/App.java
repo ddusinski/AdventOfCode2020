@@ -3,6 +3,7 @@ package com.dusinski;
 import com.dusinski.chapter1.*;
 import com.dusinski.chapter2.*;
 import com.dusinski.chapter3.*;
+import com.dusinski.chapter4.*;
 
 
 /**
@@ -11,24 +12,27 @@ import com.dusinski.chapter3.*;
 
 public class App {
     public static void main(String[] args) {
-        SetOfStacks sof = new SetOfStacks();
-        sof.push(1);
-        sof.push(2);
-        sof.push(3);
-        sof.push(4);
-        sof.push(5);
-        sof.push(6);
-        sof.push(7);
-        sof.push(8);
-        sof.push(9);
-        sof.push(10);
-        System.out.println(sof.printAll());
-//        sof.pop();
-//        sof.pop();
-//        sof.pop();
-//        sof.pop();
-        sof.popAt(2);
-        System.out.println(sof.printAll());
+
+        BinaryTree bt = new BinaryTree();
+        bt.addValue(5);
+        bt.addValue(2);
+        bt.addValue(7);
+        bt.addValue(3);
+        bt.addValue(8);
+        bt.addValue(9);
+
+        bt.printAll();
+
+        BinaryTree bt2 = new BinaryTree();
+        bt2.addValue(4);
+        bt2.addValue(2);
+        bt2.addValue(6);
+        bt2.addValue(3);
+        bt2.addValue(1);
+        bt2.addValue(5);
+        bt2.addValue(7);
+
+        bt2.printAll();
 
     }
 }
