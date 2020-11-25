@@ -15,24 +15,19 @@ public class App {
 
         BinaryTree bt = new BinaryTree();
         bt.addValue(5);
-        bt.addValue(2);
+        bt.addValue(6);
         bt.addValue(7);
-        bt.addValue(3);
         bt.addValue(8);
         bt.addValue(9);
 
-        bt.printAll();
+//        bt.printAllIterative();
+//        System.out.println(bt.printAll());
+//        System.out.println(bt.isTreeBalanced());
 
-        BinaryTree bt2 = new BinaryTree();
-        bt2.addValue(4);
-        bt2.addValue(2);
-        bt2.addValue(6);
-        bt2.addValue(3);
-        bt2.addValue(1);
-        bt2.addValue(5);
-        bt2.addValue(7);
+        int[] testArray={6,5,4,3,2,1};
+        System.out.println("result:");
+        System.out.println(BinaryTree.convertSortedArrayToBST(testArray).printAll());
 
-        bt2.printAll();
 
     }
 }

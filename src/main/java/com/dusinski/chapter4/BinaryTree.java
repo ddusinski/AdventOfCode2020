@@ -1,5 +1,8 @@
 package com.dusinski.chapter4;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
     Node root = null;
 
@@ -22,7 +25,6 @@ public class BinaryTree {
         Node newNode = new Node(val);
         if (this.root == null) {
             this.root = newNode;
-//            System.out.println(newNode.value);
         } else {
             Node currentNode = this.root;
             Node previousNode = null;
@@ -39,9 +41,7 @@ public class BinaryTree {
             } else {
                 previousNode.rightNode = newNode;
             }
-//                System.out.println(currentNode.value);
         }
-
     }
 
     private int findTreeHightRecursive(Node currentNode) {
@@ -50,7 +50,6 @@ public class BinaryTree {
         } else
             return 1 + Math.max(findTreeHightRecursive(currentNode.leftNode), findTreeHightRecursive(currentNode.rightNode));
     }
-
     public int findTreeHight() {
         return findTreeHightRecursive(this.root);
     }
@@ -60,7 +59,7 @@ public class BinaryTree {
             return "-";
         }
         if (level == 0) {
-            return currentNode.value+"";
+            return currentNode.value + "";
         } else {
             return
                     printLevelTraversal(currentNode.leftNode, level - 1) + "|" +
@@ -68,13 +67,92 @@ public class BinaryTree {
         }
     }
 
-    public void printAll() {
-        int height=findTreeHight();
-        for (int i = 0; i < height; i++) {
+    private String printLevelTraversalIterative(Node startNode) {
+        Queue<Node> nodeQueue = new LinkedList<>();
+        StringBuilder sb = new StringBuilder();
+        int level = 0;
+        nodeQueue.add(startNode);
 
-        System.out.println(" ".repeat((height-i))+printLevelTraversal(this.root, i));
+
+        while (!nodeQueue.isEmpty()) {
+            Node currentNode = nodeQueue.poll();
+            if (currentNode != null) {
+                sb.append(currentNode.value).append("|");
+                nodeQueue.add(currentNode.leftNode);
+                nodeQueue.add(currentNode.rightNode);
+            }
+            if (level % 2 == 0) {
+                sb.append("\n");
+                level = level + 2;
+            }
         }
+        return sb.toString();
     }
+
+    public void printAllIterative() {
+        System.out.println(printLevelTraversalIterative(this.root));
+    }
+
+    public String printAll() {
+        int height = findTreeHight();
+        StringBuilder sb = new StringBuilder();
+        if (height==0){
+            sb.append("empty");
+        }
+
+        for (int i = 0; i < height; i++) {
+            sb.append(" ".repeat((height - i)) + printLevelTraversal(this.root, i)).append("\n");
+        }
+        return sb.toString();
+    }
+
+    private int treeHigh(Node currentNode) {
+        if (currentNode == null)
+            return 0;
+        else return 1 + Math.max(treeHigh(currentNode.leftNode), treeHigh(currentNode.rightNode));
+    }
+
+    private boolean isBalanced(Node curentNode) {
+        if (curentNode == null) return true;
+        else
+        if (Math.abs(treeHigh(curentNode.leftNode) - treeHigh(curentNode.rightNode)) > 1) {
+            return false;
+        } else
+            return isBalanced(curentNode.leftNode) || isBalanced(curentNode.rightNode);
+    }
+
+    public boolean isTreeBalanced() {
+//            return isBalanced(this.root); //another method complexity O(n2)
+    return treeHighBalanced(this.root)>-1; //here is complexity O(n)
+    }
+
+    private int treeHighBalanced(Node currentNode) {
+        if (currentNode == null)
+            return 0;
+
+        int highLeft= treeHighBalanced(currentNode.leftNode);
+        int highRight=treeHighBalanced(currentNode.rightNode);
+        if (highLeft==-1) return -1;
+        if (highRight==-1) return -1;
+
+        if (Math.abs(highLeft-highRight)>1){
+            return -1;
+        }
+
+        else return 1 + Math.max(highLeft, highRight);
+    }
+
+
+//    converts an array with increasing sorted elements to binary search tree
+    public static BinaryTree convertSortedArrayToBST(int[] decreasingArray){
+        BinaryTree bt = new BinaryTree();
+
+        for (int i=0;i<decreasingArray.length;i++);
+
+
+        return bt;
+    }
+
 
 }
 
