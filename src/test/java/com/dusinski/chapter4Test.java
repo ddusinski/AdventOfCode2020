@@ -10,6 +10,20 @@ import org.junit.Test;
 
 public class chapter4Test {
     @Test
+    public void convertSortedArrayToBST(){
+        int[] testArray={6,5,4,3,2,1};
+
+        Assert.assertEquals("   3\n" +"  1|5\n" +" -|2|4|6\n",
+                BinaryTree.convertSortedArrayToBST(testArray).printAll());
+        assertTrue(BinaryTree.convertSortedArrayToBST(testArray).isTreeBalanced());
+
+        int[] testArray2={8,7,6,5,4,3,2,1};
+        Assert.assertEquals("    4\n" + "   2|6\n" + "  1|3|5|7\n" + " -|-|-|-|-|-|-|8\n",
+                BinaryTree.convertSortedArrayToBST(testArray2).printAll());
+        assertTrue(BinaryTree.convertSortedArrayToBST(testArray2).isTreeBalanced());
+    }
+
+    @Test
     public void printTreeTest() {
         BinaryTree bt2 = new BinaryTree();
         bt2.addValue(4);
@@ -28,7 +42,7 @@ public class chapter4Test {
     }
 
     @Test
-    public void isTreeBalancedTest() {
+    public void testIsTreeBalancedTest() {
         BinaryTree bt2 = new BinaryTree();
         bt2.addValue(4);
         bt2.addValue(2);
@@ -44,5 +58,9 @@ public class chapter4Test {
         assertFalse(bt2.isTreeBalanced());
     }
 
+    @Test
+    public void testIsBinarySearchTree(){
+
+    }
 
 }
