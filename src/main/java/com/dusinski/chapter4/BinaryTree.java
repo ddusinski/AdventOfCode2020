@@ -180,43 +180,26 @@ public class BinaryTree {
         return isBST(this.root);
     }
 
-    private Node findParentNode(int val) {
+
+
+    public void changeNodeValue(int oldVal, int newVal) {
         Queue<Node> nodeQueue = new LinkedList<>();
         nodeQueue.add(this.root);
         while (!nodeQueue.isEmpty()) {
             Node currentNode = nodeQueue.poll();
             if (currentNode != null) {
 
-                if (currentNode.leftNode!=null&&currentNode.leftNode.value == val) {
-                    return currentNode;
+                if (currentNode.leftNode != null && currentNode.leftNode.value == oldVal) {
+                    currentNode.leftNode.value = newVal;
                 }
-                if (currentNode.rightNode!=null&&currentNode.rightNode.value == val) {
-                    return currentNode;
+                if (currentNode.rightNode != null && currentNode.rightNode.value == oldVal) {
+                    currentNode.rightNode.value = newVal;
                 }
                 nodeQueue.add(currentNode.leftNode);
                 nodeQueue.add(currentNode.rightNode);
             }
         }
-        return null;
     }
-
-    public void mixNodes(int a, int b) {
-        Node tmpNodeA = findParentNode(a);
-        Node tmpNodeB = findParentNode(b);
-        Node tmp;
-        if (tmpNodeB.leftNode.value==b){
-            tmp = tmpNodeB.leftNode;
-        }
-        else{
-            tmp = tmpNodeB.rightNode;
-        }
-
-        if (tmpNodeA.leftNode.value==a){
-            tmpNodeA.leftNode=
-        }
-
-    }
-
 }
 
 
