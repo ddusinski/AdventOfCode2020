@@ -60,7 +60,23 @@ public class chapter4Test {
 
     @Test
     public void testIsBinarySearchTree(){
-
+        int[] testArray = {15,14,13,12,11,10,9,8,7, 6, 5, 4, 3, 2, 1};
+        BinaryTree bt = BinaryTree.convertSortedArrayToBST(testArray);
+        assertTrue(bt.isBinarySearchTree());
+        bt.changeNodeValue(7,0);
+        bt.changeNodeValue(9,7);
+        bt.changeNodeValue(0,9);
+        assertFalse(bt.isBinarySearchTree());
+        BinaryTree bt2 = new BinaryTree();
+        bt2.addValue(20);
+        bt2.addValue(10);
+        bt2.addValue(30);
+        bt2.addValue(8);
+        bt2.addValue(15);
+        bt2.addValue(9);
+        assertTrue(bt2.isBinarySearchTree());
+        bt2.changeNodeValue(9,12);
+        assertFalse(bt2.isBinarySearchTree());
     }
 
 }

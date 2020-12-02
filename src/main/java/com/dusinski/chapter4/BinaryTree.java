@@ -161,23 +161,32 @@ public class BinaryTree {
         } else return 1 + Math.max(highLeft, highRight);
     }
 
-    private boolean isBST(Node tempNode) {
+    private boolean isBST(Node tempNode, int min, int max) {
         if (tempNode == null) {
             return true;
         }
-        int tmpLeft = tempNode.leftNode == null ? tempNode.value : tempNode.leftNode.value;
-        int tmpRight = tempNode.rightNode == null ? tempNode.value : tempNode.rightNode.value;
 
-        if (tmpLeft > tempNode.value || tmpRight < tempNode.value) {
+        if (tempNode.value>min||tempNode.value<max){
             return false;
         }
 
-        return isBST(tempNode.leftNode) && isBST(tempNode.rightNode);
+//        if (tempNode.leftNode!=null && tempNode.leftNode.value > tempNode.value ) {
+//            return false;
+//        }
+//        if ( tempNode.rightNode!=null&&tempNode.rightNode.value < tempNode.value) {
+//            return false;
+//        }
+        return isBST(tempNode.leftNode, tempNode.value, max) && isBST(tempNode.rightNode, min, tempNode.value);
+
+//        if (!isBST(tempNode.leftNode, tempNode.value, max)||!isBST(tempNode.rightNode, min, tempNode.value)){
+//            return false;
+//        }
+//        return true;
 
     }
 
     public boolean isBinarySearchTree() {
-        return isBST(this.root);
+        return isBST(this.root, Integer.MAX_VALUE,Integer.MIN_VALUE);
     }
 
 
