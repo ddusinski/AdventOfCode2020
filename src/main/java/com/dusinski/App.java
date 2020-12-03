@@ -1,12 +1,14 @@
 package com.dusinski;
 
 import com.dusinski.AdventOfCode.Day2.PassPolicyCheck;
+import com.dusinski.AdventOfCode.*;
+import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.chapter4.BinaryTree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 /**
@@ -14,50 +16,37 @@ import java.util.function.Consumer;
  */
 
 public class App {
+//    private static void testArray(int[] array) {
+//        for (int i = 0; i < array.length; i++) {
+//            array[i]++;
+//        }
+//    }
+
     public static void main(String[] args) {
 
-        int[] testArray = {15,14,13,12,11,10,9,8,7, 6, 5, 4, 3, 2, 1};
-        BinaryTree bt = BinaryTree.convertSortedArrayToBST(testArray);
-        System.out.println("result:");
-        System.out.println(bt.printAll());
-        System.out.println("Is binary search tree?:");
-        System.out.println(bt.isBinarySearchTree());
-        bt.changeNodeValue(7,0);
-        bt.changeNodeValue(9,7);
-        bt.changeNodeValue(0,9);
-        System.out.println(bt.printAll());
-        System.out.println("Is binary search tree?:");
-        System.out.println(bt.isBinarySearchTree());
+
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day3tobogganMap.txt");
+        test.forEach(System.out::println);
+//        test.add("..##.......");
+//        test.add("#...#...#..");
+//        test.add(".#....#..#.");
+//        test.forEach(System.out::println);
+
+        TobogganMap tm = new TobogganMap(test);
+        Map<String,Long>result = new HashMap<>();
+        result.put("1,1", (long) tm.countTreeOnTheWay(1,1));
+        result.put("1,3",(long) tm.countTreeOnTheWay(1,3));
+        result.put("1,5",(long) tm.countTreeOnTheWay(1,5));
+        result.put("1,7",(long) tm.countTreeOnTheWay(1,7));
+        result.put("2,1",(long) tm.countTreeOnTheWay(2,1));
+
+        result.entrySet().stream().forEach(System.out::println);
+//        result.values().forEach(System.out::println);
+        System.out.println("Multiplication of results: "+result.values().stream().reduce((long) 1, (a,b)->a*b));
 
 
-
-        BinaryTree bt2 = new BinaryTree();
-        bt2.addValue(20);
-        bt2.addValue(10);
-        bt2.addValue(30);
-        bt2.addValue(8);
-        bt2.addValue(15);
-        bt2.addValue(9);
-        System.out.println(bt2.printAll());
-        System.out.println("Is binary search tree?:");
-        System.out.println(bt2.isBinarySearchTree());
-        bt2.changeNodeValue(9,12);
-        System.out.println(bt2.printAll());
-        System.out.println("Is binary search tree?:");
-        System.out.println(bt2.isBinarySearchTree());
-
-//        PassPolicyCheck psc= PassPolicyCheck.getInstance();
-//        psc.readFile();
-//        System.out.println("right passes: "+psc.checkPolicy());
-
-//        List<Integer> intList = Arrays.asList(1,2,3,4);
-//        Consumer<Integer> cns=p->System.out.println(p.toString());
-////        intList.forEach(System.out::println);
-//
-//        intList.stream()
-//                .filter(t->t>1)
-//                .filter(t->t<4)
-//                .forEach(cns);
+//        System.out.println(tm.countTreeOnTheWay(1,3));
 
     }
 }
