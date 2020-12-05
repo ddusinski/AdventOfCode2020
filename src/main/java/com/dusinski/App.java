@@ -4,6 +4,7 @@ import com.dusinski.AdventOfCode.Day2.PassPolicyCheck;
 import com.dusinski.AdventOfCode.*;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
+import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
 import com.dusinski.chapter4.BinaryTree;
 
 import java.util.*;
@@ -22,11 +23,13 @@ public class App {
 
 
         GetInput gi = new GetInput();
-        List<String> test = gi.getPassFileAsStringArray("day4PassportList.txt");
+        List<String> test = gi.getInputAsStringArray("day5binaryBoarding.txt");
 //        System.out.println(test.toString());
-
-        PassportCheck pc = new PassportCheck(test);
-        System.out.println("Number of valid passports: "+pc.howManyPassportIsValid());
+        BinaryPlaneBoarding bpb = new BinaryPlaneBoarding(test);
+        System.out.println("Max boarding ID: "+bpb.findMaxBoardingID());
+        bpb.findFreeSeats();
+//        PassportCheck pc = new PassportCheck(test);
+//        System.out.println("Number of valid passports: "+pc.howManyPassportIsValid());
 
 
 

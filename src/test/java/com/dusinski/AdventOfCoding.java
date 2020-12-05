@@ -2,6 +2,7 @@ package com.dusinski;
 
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
+import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
 import com.dusinski.AdventOfCode.GetInput;
 
 import java.util.HashMap;
@@ -55,6 +56,13 @@ public class AdventOfCoding {
         List<String> test = gi.getPassFileAsStringArray("day4PassportList.txt");
         PassportCheck pc = new PassportCheck(test);
         assertEquals(147, pc.howManyPassportIsValid());
+    }
+    @Test
+    public void day5FindMaxBoardingId(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day5binaryBoarding.txt");
+        BinaryPlaneBoarding bpb = new BinaryPlaneBoarding(test);
+        assertEquals(926,bpb.findMaxBoardingID());
     }
 
 
