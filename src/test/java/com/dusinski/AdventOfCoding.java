@@ -65,6 +65,15 @@ public class AdventOfCoding {
         assertEquals(926,bpb.findMaxBoardingID());
     }
 
+    @Test
+    public void findEmptySeatId(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day5binaryBoarding.txt");
+        BinaryPlaneBoarding bpb = new BinaryPlaneBoarding(test);
+        assertEquals(657,bpb.findEmptySeatsID());
+
+    }
+
 
 
 }

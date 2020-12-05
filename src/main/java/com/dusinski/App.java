@@ -27,7 +27,8 @@ public class App {
 //        System.out.println(test.toString());
         BinaryPlaneBoarding bpb = new BinaryPlaneBoarding(test);
         System.out.println("Max boarding ID: "+bpb.findMaxBoardingID());
-        bpb.findFreeSeats();
+//        bpb.findFreeSeats();
+        System.out.println(bpb.findEmptySeatsID());
 //        PassportCheck pc = new PassportCheck(test);
 //        System.out.println("Number of valid passports: "+pc.howManyPassportIsValid());
 
