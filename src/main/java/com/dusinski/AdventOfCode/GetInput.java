@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 public class GetInput {
 
     String filePath = "/home/dd/IdeaProjects/CrackingTheCoding/advOfCoding/";
-//    String filePath = "/home/dd/IdeaProjects/CrackingTheCoding/advOfCoding/day2passPolicyCheck.txt";
 
     public ArrayList<String> getInputAsStringArray(String fileName) {
         ArrayList<String> inputArray = new ArrayList<>();

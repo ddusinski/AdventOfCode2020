@@ -3,6 +3,7 @@ package com.dusinski;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
+import com.dusinski.AdventOfCode.Day6.CustomCustoms;
 import com.dusinski.AdventOfCode.GetInput;
 
 import java.util.HashMap;
@@ -74,6 +75,21 @@ public class AdventOfCoding {
 
     }
 
+    @Test
+    public void testGetCustomAnswersCount(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getPassFileAsStringArray("day6customList.txt");
+        CustomCustoms cc = new CustomCustoms(test);
+        assertEquals(6778,cc.getAnswersCount());
+    }
+
+    @Test
+    public void tstGetEveryCustomAnswerCount(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getPassFileAsStringArray("day6customList.txt");
+        CustomCustoms cc = new CustomCustoms(test);
+        assertEquals(3406,cc.getEveryAnswersCount());
+    }
 
 
 }
