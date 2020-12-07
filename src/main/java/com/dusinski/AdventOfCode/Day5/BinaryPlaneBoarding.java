@@ -3,7 +3,6 @@ package com.dusinski.AdventOfCode.Day5;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class BinaryPlaneBoarding {
     List<String> binaryPassList;

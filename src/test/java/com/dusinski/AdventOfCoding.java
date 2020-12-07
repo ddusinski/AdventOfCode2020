@@ -4,6 +4,7 @@ import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
 import com.dusinski.AdventOfCode.Day6.CustomCustoms;
+import com.dusinski.AdventOfCode.Day7.HandyHaversacksCheck;
 import com.dusinski.AdventOfCode.GetInput;
 
 import java.util.HashMap;
@@ -91,5 +92,13 @@ public class AdventOfCoding {
         assertEquals(3406,cc.getEveryAnswersCount());
     }
 
+   @Test
+    public void testHandyHaversacksCheck(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day7handyHaversacksRules.txt");
+        HandyHaversacksCheck hhc = new HandyHaversacksCheck(test);
+        assertEquals(287,hhc.getPossibleBagColors());
+
+    }
 
 }
