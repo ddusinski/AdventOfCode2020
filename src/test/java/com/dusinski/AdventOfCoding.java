@@ -93,12 +93,22 @@ public class AdventOfCoding {
     }
 
    @Test
-    public void testHandyHaversacksCheck(){
+    public void testHandyHaversacksColorsCheck(){
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day7handyHaversacksRules.txt");
         HandyHaversacksCheck hhc = new HandyHaversacksCheck(test);
         assertEquals(287,hhc.getPossibleBagColors());
 
     }
+
+    @Test
+    public void testHandyHaversacksCountCheck(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day7handyHaversacksRules.txt");
+        HandyHaversacksCheck hhc = new HandyHaversacksCheck(test);
+        assertEquals(48160,hhc.getBagsAmount());
+
+    }
+
 
 }

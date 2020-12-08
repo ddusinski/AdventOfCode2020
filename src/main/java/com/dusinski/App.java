@@ -21,7 +21,7 @@ public class App {
 //        System.out.println(test.toString());
 //        System.out.println(test.get(1));
         HandyHaversacksCheck hhc = new HandyHaversacksCheck(test);
-        System.out.println("Colors count: "+hhc.getPossibleBagColors());
+        System.out.println("Bags count: "+hhc.getBagsAmount());
 
     }
 }
