@@ -5,6 +5,7 @@ import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
 import com.dusinski.AdventOfCode.Day6.CustomCustoms;
 import com.dusinski.AdventOfCode.Day7.HandyHaversacksCheck;
+import com.dusinski.AdventOfCode.Day8.HandheldHalting;
 import com.dusinski.AdventOfCode.GetInput;
 
 import java.util.HashMap;
@@ -107,8 +108,22 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day7handyHaversacksRules.txt");
         HandyHaversacksCheck hhc = new HandyHaversacksCheck(test);
         assertEquals(48160,hhc.getBagsAmount());
-
     }
 
+    @Test
+    public void testHandheldHaltingAccBeforeStop(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day8HandheldHaltingGame.txt");
+        HandheldHalting hh = new HandheldHalting(test);
+        assertEquals(1501,hh.getAccBeforeHandStop());
+    }
+
+    @Test
+    public void testHandheldHaltingWhenAppCorrect(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day8HandheldHaltingGame.txt");
+        HandheldHalting hh = new HandheldHalting(test);
+        assertEquals(509,hh.getAccWhenAppCorrected());
+    }
 
 }
