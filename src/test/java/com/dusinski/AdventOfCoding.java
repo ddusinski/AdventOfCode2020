@@ -1,5 +1,6 @@
 package com.dusinski;
 
+import com.dusinski.AdventOfCode.Day10.AdapterArray;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -143,6 +144,22 @@ public class AdventOfCoding {
         EncodingError ee = new EncodingError(test);
         int valWithoutSum = ee.getFirstNotMatchingNumber(25);
         assertEquals(137394018, ee.getEdgeSumOfInvValue(valWithoutSum));
+    }
+
+    @Test
+    public void testGetOneAndThreeDiffProduct(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day10AdapterArray.txt");
+        AdapterArray aa = new AdapterArray(test);
+        assertEquals(2574,aa.getOneAndThreeDiffProduct());
+    }
+
+    @Test
+    public void testCheckDistinctArrangements(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day10AdapterArray.txt");
+        AdapterArray aa = new AdapterArray(test);
+        assertEquals(2644613988352L,(long)aa.checkDistinctArrangements());
     }
 
 }
