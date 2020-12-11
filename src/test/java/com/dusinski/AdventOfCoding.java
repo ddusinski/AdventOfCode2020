@@ -1,6 +1,7 @@
 package com.dusinski;
 
 import com.dusinski.AdventOfCode.Day10.AdapterArray;
+import com.dusinski.AdventOfCode.Day11.SeatingSystem;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -160,6 +161,22 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day10AdapterArray.txt");
         AdapterArray aa = new AdapterArray(test);
         assertEquals(2644613988352L,(long)aa.checkDistinctArrangements());
+    }
+
+    @Test
+    public void testSeatingSystemGetOccupiedSeatsWithNoChange(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day11SeatingSystem.txt");
+        SeatingSystem ss = new SeatingSystem(test);
+        assertEquals(2273, ss.getOccupiedSeatsWithNoChange());
+    }
+
+    @Test
+    public void testSeatingSystemGetOccupiedSeatsEachDirection(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day11SeatingSystem.txt");
+        SeatingSystem ss = new SeatingSystem(test);
+        assertEquals(2064,ss.getOccupiedSeatsEachDirection());
     }
 
 }
