@@ -2,6 +2,7 @@ package com.dusinski;
 
 import com.dusinski.AdventOfCode.Day10.AdapterArray;
 import com.dusinski.AdventOfCode.Day11.SeatingSystem;
+import com.dusinski.AdventOfCode.Day12.NavigationInstructions;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -178,5 +179,23 @@ public class AdventOfCoding {
         SeatingSystem ss = new SeatingSystem(test);
         assertEquals(2064,ss.getOccupiedSeatsEachDirection());
     }
+
+    @Test
+    public void testNavigationInstructionsGetManhattanDistance(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day12navigationInstructions.txt");
+        NavigationInstructions ni = new NavigationInstructions(test);
+        assertEquals(2847,ni.getManhattanDistance());
+    }
+
+    @Test
+    public void testNavigationInstructionsGetManhattanDistanceIndependentCoordinates(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day12navigationInstructions.txt");
+        NavigationInstructions ni = new NavigationInstructions(test);
+        assertEquals(29839,ni.getManhattanDistanceIndependentCoordinates());
+    }
+
+
 
 }
