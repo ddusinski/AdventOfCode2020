@@ -4,6 +4,7 @@ import com.dusinski.AdventOfCode.*;
 import com.dusinski.AdventOfCode.Day10.AdapterArray;
 import com.dusinski.AdventOfCode.Day11.SeatingSystem;
 import com.dusinski.AdventOfCode.Day12.NavigationInstructions;
+import com.dusinski.AdventOfCode.Day13.ShuttleSearch;
 import com.dusinski.AdventOfCode.Day6.CustomCustoms;
 import com.dusinski.AdventOfCode.Day7.HandyHaversacksCheck;
 import com.dusinski.AdventOfCode.Day8.HandheldHalting;
@@ -22,14 +23,14 @@ public class App {
 
 
         GetInput gi = new GetInput();
-        List<String> test = gi.getInputAsStringArray("day12navigationInstructions.txt");
-        System.out.println(test.toString());
+        List<String> test = gi.getInputAsStringArray("day13shuttleInstructions.txt");
+//        System.out.println(test.toString());
 //        System.out.println(test.get(0));
+//        System.out.println(test.get(1));
 
-        NavigationInstructions ni = new NavigationInstructions(test);
-//        System.out.println("Manhattan distance: "+ni.getManhattanDistance());
-        System.out.println("Manhattan distance: "+ni.getManhattanDistanceIndependentCoordinates());
-
+        ShuttleSearch ss = new ShuttleSearch(test);
+//        System.out.println(ss.findEarliestBusTimesTimeToWait());
+        System.out.println(ss.findFirstCommonStartTime());
 
 
     }
