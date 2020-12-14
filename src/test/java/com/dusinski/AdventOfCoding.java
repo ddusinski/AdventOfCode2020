@@ -3,6 +3,7 @@ package com.dusinski;
 import com.dusinski.AdventOfCode.Day10.AdapterArray;
 import com.dusinski.AdventOfCode.Day11.SeatingSystem;
 import com.dusinski.AdventOfCode.Day12.NavigationInstructions;
+import com.dusinski.AdventOfCode.Day14.DockingData;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -149,23 +150,23 @@ public class AdventOfCoding {
     }
 
     @Test
-    public void testGetOneAndThreeDiffProduct(){
+    public void testGetOneAndThreeDiffProduct() {
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day10AdapterArray.txt");
         AdapterArray aa = new AdapterArray(test);
-        assertEquals(2574,aa.getOneAndThreeDiffProduct());
+        assertEquals(2574, aa.getOneAndThreeDiffProduct());
     }
 
     @Test
-    public void testCheckDistinctArrangements(){
+    public void testCheckDistinctArrangements() {
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day10AdapterArray.txt");
         AdapterArray aa = new AdapterArray(test);
-        assertEquals(2644613988352L,(long)aa.checkDistinctArrangements());
+        assertEquals(2644613988352L, (long) aa.checkDistinctArrangements());
     }
 
     @Test
-    public void testSeatingSystemGetOccupiedSeatsWithNoChange(){
+    public void testSeatingSystemGetOccupiedSeatsWithNoChange() {
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day11SeatingSystem.txt");
         SeatingSystem ss = new SeatingSystem(test);
@@ -173,29 +174,47 @@ public class AdventOfCoding {
     }
 
     @Test
-    public void testSeatingSystemGetOccupiedSeatsEachDirection(){
+    public void testSeatingSystemGetOccupiedSeatsEachDirection() {
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day11SeatingSystem.txt");
         SeatingSystem ss = new SeatingSystem(test);
-        assertEquals(2064,ss.getOccupiedSeatsEachDirection());
+        assertEquals(2064, ss.getOccupiedSeatsEachDirection());
     }
 
     @Test
-    public void testNavigationInstructionsGetManhattanDistance(){
+    public void testNavigationInstructionsGetManhattanDistance() {
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day12navigationInstructions.txt");
         NavigationInstructions ni = new NavigationInstructions(test);
-        assertEquals(2847,ni.getManhattanDistance());
+        assertEquals(2847, ni.getManhattanDistance());
     }
 
     @Test
-    public void testNavigationInstructionsGetManhattanDistanceIndependentCoordinates(){
+    public void testNavigationInstructionsGetManhattanDistanceIndependentCoordinates() {
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day12navigationInstructions.txt");
         NavigationInstructions ni = new NavigationInstructions(test);
-        assertEquals(29839,ni.getManhattanDistanceIndependentCoordinates());
+        assertEquals(29839, ni.getManhattanDistanceIndependentCoordinates());
     }
 
+
+    @Test
+    public void testDockingDataPart1() {
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day14dockingData.txt");
+        DockingData dd = new DockingData(test);
+        assertEquals(14553106347726L, dd.sumOfValuesAfterProgInit());
+
+    }
+
+    @Test
+    public void testDockingDataPart2() {
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day14dockingData.txt");
+        DockingData dd = new DockingData(test);
+        assertEquals(2737766154126L, dd.getMemoryAccessDecoderSum());
+
+    }
 
 
 }
