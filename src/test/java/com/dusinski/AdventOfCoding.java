@@ -4,6 +4,7 @@ import com.dusinski.AdventOfCode.Day10.AdapterArray;
 import com.dusinski.AdventOfCode.Day11.SeatingSystem;
 import com.dusinski.AdventOfCode.Day12.NavigationInstructions;
 import com.dusinski.AdventOfCode.Day14.DockingData;
+import com.dusinski.AdventOfCode.Day15.RambunctiousRecitation;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -204,7 +205,6 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day14dockingData.txt");
         DockingData dd = new DockingData(test);
         assertEquals(14553106347726L, dd.sumOfValuesAfterProgInit());
-
     }
 
     @Test
@@ -213,8 +213,21 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day14dockingData.txt");
         DockingData dd = new DockingData(test);
         assertEquals(2737766154126L, dd.getMemoryAccessDecoderSum());
-
     }
 
+    @Test
+    public void testRambunctiousRecitationPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day15rambunctiousRecitation.txt");
+        RambunctiousRecitation rr =new RambunctiousRecitation(test);
+        assertEquals(1618,rr.get200thElementOfRecitation(2020));
+    }
+    @Test
+    public void testRambunctiousRecitationPart2(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day15rambunctiousRecitation.txt");
+        RambunctiousRecitation rr =new RambunctiousRecitation(test);
+        assertEquals(548531,rr.get200thElementOfRecitation(30000000));
+    }
 
 }
