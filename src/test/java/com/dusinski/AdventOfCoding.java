@@ -5,6 +5,7 @@ import com.dusinski.AdventOfCode.Day11.SeatingSystem;
 import com.dusinski.AdventOfCode.Day12.NavigationInstructions;
 import com.dusinski.AdventOfCode.Day14.DockingData;
 import com.dusinski.AdventOfCode.Day15.RambunctiousRecitation;
+import com.dusinski.AdventOfCode.Day16.TicketTranslation;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -228,6 +229,22 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day15rambunctiousRecitation.txt");
         RambunctiousRecitation rr =new RambunctiousRecitation(test);
         assertEquals(548531,rr.get200thElementOfRecitation(30000000));
+    }
+
+    @Test
+    public void testTicketTranslationPar1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day16ticketTranslation.txt");
+        TicketTranslation tt = new TicketTranslation(test);
+        assertEquals(22057,tt.getTicketErrorRate());
+    }
+
+    @Test
+    public void testTicketTranslationPar2(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day16ticketTranslation.txt");
+        TicketTranslation tt = new TicketTranslation(test);
+        assertEquals(1093427331937L,tt.getDepartureClassesProduct());
     }
 
 }
