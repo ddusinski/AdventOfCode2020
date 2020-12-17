@@ -8,6 +8,8 @@ import com.dusinski.AdventOfCode.Day13.ShuttleSearch;
 import com.dusinski.AdventOfCode.Day14.DockingData;
 import com.dusinski.AdventOfCode.Day15.RambunctiousRecitation;
 import com.dusinski.AdventOfCode.Day16.TicketTranslation;
+import com.dusinski.AdventOfCode.Day17.ConwayCubes;
+import com.dusinski.AdventOfCode.Day17.ConwayCubes4Dimensions;
 import com.dusinski.AdventOfCode.Day6.CustomCustoms;
 import com.dusinski.AdventOfCode.Day7.HandyHaversacksCheck;
 import com.dusinski.AdventOfCode.Day8.HandheldHalting;
@@ -26,14 +28,17 @@ public class App {
 
 
         GetInput gi = new GetInput();
-        List<String> test = gi.getInputAsStringArray("day16ticketTranslation.txt");
+        List<String> test = gi.getInputAsStringArray("day17conwayCubes.txt");
 //        System.out.println(test.toString());
 //        System.out.println(test.get(0));
 //        System.out.println(test.get(1));
 
-        TicketTranslation tt = new TicketTranslation(test);
-//        System.out.println("error rate: "+tt.getTicketErrorRate());
-        System.out.println("departures: "+tt.getDepartureClassesProduct());
+//        ConwayCubes cc = new ConwayCubes(test);
+//        System.out.println("active: " + cc.activeLeftAfter6Cycles());
+
+        ConwayCubes4Dimensions cc = new ConwayCubes4Dimensions(test);
+        System.out.println("active: " + cc.activeLeftAfter6Cycles());
+
 
 
     }
