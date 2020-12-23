@@ -8,6 +8,13 @@ import com.dusinski.AdventOfCode.Day15.RambunctiousRecitation;
 import com.dusinski.AdventOfCode.Day16.TicketTranslation;
 import com.dusinski.AdventOfCode.Day17.ConwayCubes;
 import com.dusinski.AdventOfCode.Day17.ConwayCubes4Dimensions;
+import com.dusinski.AdventOfCode.Day18.OperationOrder;
+import com.dusinski.AdventOfCode.Day18.OperationOrderDiffPrecedence;
+import com.dusinski.AdventOfCode.Day19.MonsterMessages;
+import com.dusinski.AdventOfCode.Day20.JurassicJigsaw;
+import com.dusinski.AdventOfCode.Day21.AllergenAssessment;
+import com.dusinski.AdventOfCode.Day22.CrabCombat;
+import com.dusinski.AdventOfCode.Day22.RecursiveCrabCombat;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -263,5 +270,67 @@ public class AdventOfCoding {
         ConwayCubes4Dimensions cc = new ConwayCubes4Dimensions(test);
         assertEquals(2532, cc.activeLeftAfter6Cycles());
     }
+
+    @Test
+    public void testOperationalOrderOnlyPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day18operationOrder.txt");
+        OperationOrder oo = new OperationOrder(test);
+        assertEquals(3885386961962L,oo.computeExpression());
+
+//        Lets do the second part but in more ordered way
+
+    }
+
+
+    @Test
+    public void testMonsterMessagesOnlyPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day19monsterMessages.txt");
+        MonsterMessages mm =new MonsterMessages(test);
+        assertEquals(241, mm.matchesMessagesCount());
+    }
+
+    @Test
+    public void testJurassicJigsawPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day20_JurassicJigsaw.txt");
+        JurassicJigsaw jj = new JurassicJigsaw(test);
+        assertEquals(16937516456219L, jj.getCornersProduct());
+    }
+
+    @Test
+    public void testCrabCombatPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day22crabCombat.txt");
+        CrabCombat cc =new CrabCombat(test);
+        assertEquals(34324, cc.winningPlayerScores());
+    }
+
+    @Test
+    public void testCrabCombatPart2(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day22crabCombat.txt");
+        RecursiveCrabCombat ccr =new RecursiveCrabCombat(test);
+        assertEquals(33259, ccr.winningPlayerScores());
+    }
+
+
+    @Test
+    public void testAllergenAssessmentPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day21allergenAssessment.txt");
+        AllergenAssessment aa = new AllergenAssessment(test);
+        assertEquals(2410,aa.getCountOfAllergenFreeFoods());
+    }
+
+    @Test
+    public void testAllergenAssessmentPart2(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day21allergenAssessment.txt");
+        AllergenAssessment aa = new AllergenAssessment(test);
+        assertEquals("tmp,pdpgm,cdslv,zrvtg,ttkn,mkpmkx,vxzpfp,flnhl", aa.getCanonicalDangerousIngredientList());
+    }
+
 
 }
