@@ -15,6 +15,9 @@ import com.dusinski.AdventOfCode.Day20.JurassicJigsaw;
 import com.dusinski.AdventOfCode.Day21.AllergenAssessment;
 import com.dusinski.AdventOfCode.Day22.CrabCombat;
 import com.dusinski.AdventOfCode.Day22.RecursiveCrabCombat;
+import com.dusinski.AdventOfCode.Day23.CrabCups;
+import com.dusinski.AdventOfCode.Day24.LobbyLayout;
+import com.dusinski.AdventOfCode.Day25.ComboBreaker;
 import com.dusinski.AdventOfCode.Day3.TobogganMap;
 import com.dusinski.AdventOfCode.Day4.PassportCheck;
 import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
@@ -330,6 +333,35 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day21allergenAssessment.txt");
         AllergenAssessment aa = new AllergenAssessment(test);
         assertEquals("tmp,pdpgm,cdslv,zrvtg,ttkn,mkpmkx,vxzpfp,flnhl", aa.getCanonicalDangerousIngredientList());
+    }
+
+    @Test// last day has only one quest
+    public void testComboBreaker(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day25comboBreaker.txt");
+        ComboBreaker cb =new ComboBreaker(test);
+        assertEquals(181800L,cb.getEncryptionKey());
+    }
+
+    @Test // day 24
+    public void testLobbyLayoutPart1(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day24lobbyLayout.txt");
+
+        LobbyLayout ll = new LobbyLayout(test);
+        assertEquals(479,ll.getBlackTilesCount());
+    }
+
+    @Test //day 23
+    public void testCrabCupsPart1(){
+        CrabCups cc = new CrabCups("974618352".toCharArray());
+        assertEquals("75893264",cc.getOrderAfter100Moves());
+    }
+
+    @Test
+    public void testCrabCups(){
+        CrabCups cc = new CrabCups("974618352".toCharArray());
+        assertEquals("38162588308",cc.getOrderAfter1000000Moves());
     }
 
 

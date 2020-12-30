@@ -17,6 +17,9 @@ import com.dusinski.AdventOfCode.Day20.JurassicJigsaw;
 import com.dusinski.AdventOfCode.Day21.AllergenAssessment;
 import com.dusinski.AdventOfCode.Day22.CrabCombat;
 import com.dusinski.AdventOfCode.Day22.RecursiveCrabCombat;
+import com.dusinski.AdventOfCode.Day23.CrabCups;
+import com.dusinski.AdventOfCode.Day24.LobbyLayout;
+import com.dusinski.AdventOfCode.Day25.ComboBreaker;
 import com.dusinski.AdventOfCode.Day6.CustomCustoms;
 import com.dusinski.AdventOfCode.Day7.HandyHaversacksCheck;
 import com.dusinski.AdventOfCode.Day8.HandheldHalting;
@@ -32,17 +35,15 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
+//        GetInput gi = new GetInput();
+//        List<String> test = gi.getInputAsStringArray("day24lobbyLayout.txt");
+
+//        CrabCups cc = new CrabCups("389125467".toCharArray());
+        CrabCups cc = new CrabCups("974618352".toCharArray());
+        System.out.println("Cups after cup 1 after 100 moves: "+cc.getOrderAfter1000000Moves());
 
 
-        GetInput gi = new GetInput();
-        List<String> test = gi.getInputAsStringArray("day22crabCombat.txt");
-         RecursiveCrabCombat ccr =new RecursiveCrabCombat(test);
-
-        System.out.println("Crab combat recursive "+ ccr.winningPlayerScores());
-
-
-
-//
+//        389125467
 
     }
 }
