@@ -35,12 +35,11 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
-//        GetInput gi = new GetInput();
-//        List<String> test = gi.getInputAsStringArray("day24lobbyLayout.txt");
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day24lobbyLayout.txt");
 
-//        CrabCups cc = new CrabCups("389125467".toCharArray());
-        CrabCups cc = new CrabCups("974618352".toCharArray());
-        System.out.println("Cups after cup 1 after 100 moves: "+cc.getOrderAfter1000000Moves());
+        LobbyLayout ll = new LobbyLayout(test);
+        System.out.println("Black after 100: " + ll.getBlackAfter100Changes());
 
 
 //        389125467

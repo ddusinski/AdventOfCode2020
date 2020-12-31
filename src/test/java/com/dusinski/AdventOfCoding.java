@@ -347,11 +347,18 @@ public class AdventOfCoding {
     public void testLobbyLayoutPart1(){
         GetInput gi = new GetInput();
         List<String> test = gi.getInputAsStringArray("day24lobbyLayout.txt");
-
         LobbyLayout ll = new LobbyLayout(test);
         assertEquals(479,ll.getBlackTilesCount());
     }
 
+    @Test
+    public void testLobbyLayoutPart2(){
+        GetInput gi = new GetInput();
+        List<String> test = gi.getInputAsStringArray("day24lobbyLayout.txt");
+        LobbyLayout ll = new LobbyLayout(test);
+        assertEquals(4135, ll.getBlackAfter100Changes());
+    }
+    
     @Test //day 23
     public void testCrabCupsPart1(){
         CrabCups cc = new CrabCups("974618352".toCharArray());
@@ -359,7 +366,7 @@ public class AdventOfCoding {
     }
 
     @Test
-    public void testCrabCups(){
+    public void testCrabCupsPart2(){
         CrabCups cc = new CrabCups("974618352".toCharArray());
         assertEquals("38162588308",cc.getOrderAfter1000000Moves());
     }
