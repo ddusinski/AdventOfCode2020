@@ -1,31 +1,30 @@
 package com.dusinski;
 
-import com.dusinski.AdventOfCode.Day10.AdapterArray;
-import com.dusinski.AdventOfCode.Day11.SeatingSystem;
-import com.dusinski.AdventOfCode.Day12.NavigationInstructions;
-import com.dusinski.AdventOfCode.Day14.DockingData;
-import com.dusinski.AdventOfCode.Day15.RambunctiousRecitation;
-import com.dusinski.AdventOfCode.Day16.TicketTranslation;
-import com.dusinski.AdventOfCode.Day17.ConwayCubes;
-import com.dusinski.AdventOfCode.Day17.ConwayCubes4Dimensions;
-import com.dusinski.AdventOfCode.Day18.OperationOrder;
-import com.dusinski.AdventOfCode.Day18.OperationOrderDiffPrecedence;
-import com.dusinski.AdventOfCode.Day19.MonsterMessages;
-import com.dusinski.AdventOfCode.Day20.JurassicJigsaw;
-import com.dusinski.AdventOfCode.Day21.AllergenAssessment;
-import com.dusinski.AdventOfCode.Day22.CrabCombat;
-import com.dusinski.AdventOfCode.Day22.RecursiveCrabCombat;
-import com.dusinski.AdventOfCode.Day23.CrabCups;
-import com.dusinski.AdventOfCode.Day24.LobbyLayout;
-import com.dusinski.AdventOfCode.Day25.ComboBreaker;
-import com.dusinski.AdventOfCode.Day3.TobogganMap;
-import com.dusinski.AdventOfCode.Day4.PassportCheck;
-import com.dusinski.AdventOfCode.Day5.BinaryPlaneBoarding;
-import com.dusinski.AdventOfCode.Day6.CustomCustoms;
-import com.dusinski.AdventOfCode.Day7.HandyHaversacksCheck;
-import com.dusinski.AdventOfCode.Day8.HandheldHalting;
-import com.dusinski.AdventOfCode.Day9.EncodingError;
-import com.dusinski.AdventOfCode.GetInput;
+import com.dusinski.adventofcode.day10.AdapterArray;
+import com.dusinski.adventofcode.day11.SeatingSystem;
+import com.dusinski.adventofcode.day12.NavigationInstructions;
+import com.dusinski.adventofcode.day14.DockingData;
+import com.dusinski.adventofcode.day15.RambunctiousRecitation;
+import com.dusinski.adventofcode.day16.TicketTranslation;
+import com.dusinski.adventofcode.day17.ConwayCubes;
+import com.dusinski.adventofcode.day17.ConwayCubes4Dimensions;
+import com.dusinski.adventofcode.day18.OperationOrder;
+import com.dusinski.adventofcode.day19.MonsterMessages;
+import com.dusinski.adventofcode.day20.JurassicJigsaw;
+import com.dusinski.adventofcode.day21.AllergenAssessment;
+import com.dusinski.adventofcode.day22.CrabCombat;
+import com.dusinski.adventofcode.day22.RecursiveCrabCombat;
+import com.dusinski.adventofcode.day23.CrabCups;
+import com.dusinski.adventofcode.day24.LobbyLayout;
+import com.dusinski.adventofcode.day25.ComboBreaker;
+import com.dusinski.adventofcode.day3.TobogganMap;
+import com.dusinski.adventofcode.day4.PassportCheck;
+import com.dusinski.adventofcode.day5.BinaryPlaneBoarding;
+import com.dusinski.adventofcode.day6.CustomCustoms;
+import com.dusinski.adventofcode.day7.HandyHaversacksCheck;
+import com.dusinski.adventofcode.day8.HandheldHalting;
+import com.dusinski.adventofcode.day9.EncodingError;
+import com.dusinski.adventofcode.GetInput;
 
 import java.util.HashMap;
 import java.util.List;
@@ -36,24 +35,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class AdventOfCoding {
-
-    //        PassPolicyCheck psc= PassPolicyCheck.getInstance();
-//        psc.readFile();
-//        System.out.println("right passes: "+psc.checkPolicy());
-
-//        List<Integer> intList = Arrays.asList(1,2,3,4);
-//        Consumer<Integer> cns=p->System.out.println(p.toString());
-////        intList.forEach(System.out::println);
-//        intList.stream()
-//                .filter(t->t>1)
-//                .filter(t->t<4)
-//                .forEach(cns);
-
-
-    //        int[] testArray = {15,14,13,12,11,10,9,8,7, 6, 5, 4, 3, 2, 1};
-//        System.out.println(Arrays.stream(testArray).boxed().collect(Collectors.toList()));
-//        testArray(testArray);
-//        System.out.println(Arrays.stream(testArray).boxed().collect(Collectors.toList()));
 
     @Test
     public void Day3TobogganMapCheck() {
@@ -67,9 +48,6 @@ public class AdventOfCoding {
         result.put("1,7", (long) tm.countTreeOnTheWay(1, 7));
         result.put("2,1", (long) tm.countTreeOnTheWay(2, 1));
         assertEquals(2698900776L, (long) result.values().stream().reduce((long) 1, (a, b) -> a * b));
-
-        //        test.forEach(System.out::println);
-//        result.entrySet().stream().forEach(System.out::println);
     }
 
     @Test
@@ -119,7 +97,6 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day7handyHaversacksRules.txt");
         HandyHaversacksCheck hhc = new HandyHaversacksCheck(test);
         assertEquals(287, hhc.getPossibleBagColors());
-
     }
 
     @Test
@@ -280,9 +257,6 @@ public class AdventOfCoding {
         List<String> test = gi.getInputAsStringArray("day18operationOrder.txt");
         OperationOrder oo = new OperationOrder(test);
         assertEquals(3885386961962L,oo.computeExpression());
-
-//        Lets do the second part but in more ordered way
-
     }
 
 
